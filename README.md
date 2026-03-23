@@ -1,5 +1,5 @@
 # Minimal Neovim Config 
-A keyboard-driven, minimal-UI Neovim configuration built for speed and large codebase reviews. It mimics ThePrimeagen's workflow by ditching traditional file trees and heavy UI elements in favor of native lists, Harpoon, and Telescope.
+A keyboard-driven, minimal-UI Neovim configuration built for speed and large codebase reviews. It mimics minimal workflow by ditching traditional file trees and heavy UI elements in favor of native lists, Harpoon, and Telescope.
 
 ## Prerequisites
 Before installing, ensure you have the following dependencies on your system:
