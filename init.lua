@@ -14,23 +14,4 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins", {
-    ui = {
-        -- Make lazy.nvim's UI minimal text-based
-        icons = {
-            cmd = "",
-            config = "",
-            event = "",
-            ft = "",
-            init = "",
-            keys = "",
-            plugin = "",
-            runtime = "",
-            require = "",
-            source = "",
-            start = "",
-            task = "",
-            lazy = "",
-        },
-    }
-})
+require("lazy").setup("plugins")

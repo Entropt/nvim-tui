@@ -1,9 +1,14 @@
 # Minimal Neovim Config 
-A keyboard-driven, minimal-UI Neovim configuration built for speed and large codebase reviews. It mimics minimal workflow by ditching traditional file trees and heavy UI elements in favor of native lists, Harpoon, and Telescope.
+A keyboard-driven, minimal-UI Neovim configuration built for speed and large codebase reviews. It mimics a lean workflow by ditching traditional file trees, heavy UI elements, and redundant plugins in favor of native lists, Harpoon, Telescope, and Neovim's built-in features.
+
+## Philosophy & Zero-Bloat Guarantee
+This configuration has been rigorously audited to remove *all* redundant default Neovim settings and unnecessary plugins. 
+* **Native Snippets**: We stripped out bulky snippet plugins (`LuaSnip`, `friendly-snippets`) and rely entirely on Neovim v0.10+'s native `vim.snippet` engine.
+* **Native Defaults**: We don't force settings like `incsearch`, `termguicolors`, or `backup=false` because modern Neovim handles these out of the box. What you see in `set.lua` is strictly what departs from the default behavior.
 
 ## Prerequisites
 Before installing, ensure you have the following dependencies on your system:
-- **Neovim** (v0.9.0 or higher)
+- **Neovim** (v0.10.0 or higher) - *Required for the native `vim.snippet` engine and built-in defaults.*
 - **Git**
 - **C Compiler** (e.g., `gcc` or `clang` for Treesitter)
 - **Make** (Required for compiling Telescope's `fzf-native` fast sorter)
@@ -23,7 +28,7 @@ git clone https://github.com/Entropt/nvim-tui ~/.config/nvim
 ```bash
 nvim
 ```
-- Note: On first launch, lazy.nvim will automatically bootstrap itself and install all the plugins. The UI is configured to be minimal text.
+- Note: On first launch, `lazy.nvim` will automatically bootstrap itself and install all the plugins cleanly and quietly.
 4. Crucial Setup Step: Once the plugins finish downloading, ensure your Treesitter parsers are compiled and up to date to prevent buffer errors:
 ```      
 :TSUpdate
@@ -51,10 +56,10 @@ Designed for auditing large codebases using native Vim quickfix lists instead of
 - `<C-j>` / `<C-k>` : Jump to the Next/Previous item in the Quickfix list (cursor stays centered).
 
 #### Autocompletion (VSCode-like Dropdowns)
+Powered entirely by `nvim-cmp` and the blazing-fast native Neovim v0.10+ `vim.snippet` module (No LuaSnip bloat).
 When typing, a minimal text dropdown will appear for variables, snippets, and LSP suggestions:
 - `<C-n>` : Select Next item in the dropdown.
 - `<C-p>` : Select Previous item in the dropdown.
-- `<C-y>` : Accept / Yes (Confirms the selection).
 - `<C-Space>` : Force open the completion menu if closed.
 
 #### LSP, Languages & Reading Source Code
